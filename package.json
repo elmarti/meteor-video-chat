@@ -1,0 +1,28 @@
+{
+  "name": "meteor-video-chat",
+  "version": "0.0.0-alpha-1",
+  "description": "NPM package for working with elmarti:meteor-video-chat in other platforms",
+  "main": "asteroid.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmarti/meteor-video-chat.git"
+  },
+  "keywords": [
+    "meteor",
+    "video",
+    "chat",
+    "webrtc"
+  ],
+  "author": "elmarti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elmarti/meteor-video-chat/issues"
+  },
+  "homepage": "https://github.com/elmarti/meteor-video-chat#readme",
+  "dependencies": {
+    "rtcfly": "^0.1.8-time-to-rebuild-check-branch-called-next"
+  }
+}

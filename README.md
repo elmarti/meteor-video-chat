@@ -22,14 +22,27 @@ Meteor Video Chat used to use `Meteor.VideoCallServices`, however we have moved 
 `import { VideoCallServices } from 'meteor/elmarti:video-chat';`
 Old style code will be supported for the forseeable future, but we suggest moving over to the new format.
 
+## Usage with asteroid
+The Meteor Video Chat client can be used by first running `npm install meteor-video-chat`, and then using the following mixin import
+```
+
+import { AsteroidVideoChatMixin } from 'meteor-video-chat';
+
+```
+After including this as an Asteroid mixin, as per the Asteroid page, you can access it like so:
+```
+    Asteroid.VideoCallServices;
+
+```
+
 ## init
 Here you can set the [RTCConfiguration](https://developer.mozilla.org/en-US/docs/Web/API/RTCConfiguration). If you are testing outside of a LAN, you'll need to procure some [STUN & TURN](https://gist.github.com/yetithefoot/7592580) servers.
 
 ```
-VideoCallServices.init([{'iceServers': [{
+VideoCallServices.init({'iceServers': [{
     'urls': 'stun:stun.example.org'
   }]
-}]);
+});
 ```
 #### Calling a user
 To call a user, use the following method. 
@@ -57,6 +70,9 @@ VideoCallServices.checkConnect = function(caller, target){
 return *can caller and target call each other"
 };
 ```
+
+
+
 #### Answering a call
 The first step is to handle the onReceiveCall callback and then to accept the call. The answerCall method accepts the ICallParams interfaces, just like the "call" method above
 ```
@@ -65,6 +81,37 @@ The first step is to handle the onReceiveCall callback and then to accept the ca
  };
 
 ```
+
+
+#### Muting local or remote videos
+```
+VideoCallServices.toggleLocalAudio();
+VideoCallServices.toggleRemoteAudio();
+```
+
+
+#### Application state
+The following values are stored in a reactive var 
+```
+localMuted:boolean, 
+remoteMuted:boolean, 
+ringing:boolean,
+inProgress:boolean
+
+```
+#### Getting the state 
+```
+VideoCallServices.getState("localMuted");
+
+```
+#### Accessing the video (HTMLMediaElement) elements
+
+```
+const localVideo = VideoCallServices.getLocalVideo();
+const remoteVideo = VideoCallServices.getRemoteVideo();
+
+```
+
 #### Ending call
 Simply call
 ```
