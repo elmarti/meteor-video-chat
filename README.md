@@ -1,4 +1,4 @@
-#UNMAINTAINED - i can review PRs, but I don't work with Meteor anymore and would not recommend this solution
+# UNMAINTAINED - i can review PRs, but I don't work with Meteor anymore and would not recommend this solution
 
 # Meteor Video Chat
 This extension allows you to implement user-to-user video calling in React, Angular and Blaze.
